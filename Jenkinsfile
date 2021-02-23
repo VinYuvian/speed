@@ -20,9 +20,11 @@ pipeline {
   stages {
     stage('checkout'){
       steps{
-        //sh 'git config --global --unset http.proxy'
-        git branch: 'main', credentialsId: 'git', url: 'https://github.com/VinYuvian/speed-poc.git'
-        //stash 'workspace'
+        container('git'){
+            //sh 'git config --global --unset http.proxy'
+            git branch: 'main', credentialsId: 'git', url: 'https://github.com/VinYuvian/speed-poc.git'
+            //stash 'workspace'
+        }
       }
     }
     stage('Build Docker Image') {
