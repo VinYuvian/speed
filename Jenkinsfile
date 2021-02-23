@@ -1,7 +1,7 @@
 //Descriptuon: "pipeline to deply golang backend application to kubernetes"
 pipeline {
   options{
-    skipDefaultCheckout()
+    //skipDefaultCheckout()
     //buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '2',daysToKeepStr: '1'))
   }
   environment{
