@@ -20,7 +20,7 @@ pipeline {
   stages {
     stage('checkout'){
       steps{
-        sh 'git config --global --unset http.proxy'
+        //sh 'git config --global --unset http.proxy'
         git branch:'main',url:'https://github.com/VinYuvian/speed-poc.git',credentialsId: 'git'
         //stash 'workspace'
       }
