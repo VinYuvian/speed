@@ -9,6 +9,10 @@ spec:
       volumeMounts:
         - name: docker
           mountPath: /var/run/docker.sock # We use the k8s host docker engine
+    - name: git
+      image: alpine/git
+      command: ["tail", "-f", "/dev/null"]
+      imagePullPolicy: Always
   volumes:
     - name: docker
       hostPath:
