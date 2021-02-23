@@ -2,7 +2,7 @@
 pipeline {
   options{
     //skipDefaultCheckout()
-    //buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '2',daysToKeepStr: '1'))
+    buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '2',daysToKeepStr: '1'))
   }
   environment{
       image_name = 'vin1711/speed-poc'
