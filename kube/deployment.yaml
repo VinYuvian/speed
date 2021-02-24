@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: speedtest-deploy
+spec:
+  selector:
+    matchLabels:
+      name: speedtest
+  template:
+    metadata:
+      labels:
+        name: speedtest
+    spec:
+      containers:
+      - name: speedtest
+        image: vin1711/speed-poc:latest
+        ports:
+        - name: http
+          containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: speed-service
+spec:
+  selector:
+    name: speedtest
+  ports:
+    - name: speedtest
+      targetPort: 80
+      protocol: "TCP"
+      port: 80
+  type: NodePort
