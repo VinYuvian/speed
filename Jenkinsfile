@@ -20,7 +20,7 @@ pipeline {
   stages {
     stage('checkout'){
       steps{
-            git branch:'master',url:'https://github.com/VinYuvian/speed-poc.git'
+            git branch:'main',url:'https://github.com/VinYuvian/speed-poc.git'
             //sh 'git config --global --unset http.proxy'
             //sh 'git clone https://github.com/VinYuvian/fiberReact_back.git'
             //stash 'workspace'
