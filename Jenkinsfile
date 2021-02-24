@@ -29,7 +29,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
           container('docker') {  
-            sh "docker build -t ${image_name} -t ${image_name}:${BUILD_ID}} ."
+            sh "docker build -t ${image_name} -t ${image_name}:${BUILD_ID} ."
             script{
                 env.choice = input message:"please select how to proceed",parameters:[choice(name:'build_type',
                                                                                          choices:'test\nprod\nstage\ntestPipeline',
