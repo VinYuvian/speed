@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: speedtest-deploy
 spec:
+  replicas: 3
   selector:
     matchLabels:
       name: speedtest
