@@ -1,5 +1,6 @@
 <?php
-$WATERMARK_TEXT="LibreSpeed";
+//$WATERMARK_TEXT="LibreSpeed";
+$WATERMARK_TEXT="Alethea-POC";
 
 error_reporting(0);
 putenv('GDFONTPATH=' . realpath('.'));
