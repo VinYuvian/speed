@@ -30,7 +30,7 @@ COPY docker/entrypoint.sh /
 
 # Prepare environment variabiles defaults
 
-ENV TITLE=Alethea-POC
+ENV TITLE=Alethea-DEPLOYMENT
 ENV MODE=standalone
 ENV PASSWORD=password
 ENV TELEMETRY=false
