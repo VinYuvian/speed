@@ -63,6 +63,6 @@ pipeline {
            //kubernetesDeploy(configs: '**/*.yaml', kubeconfigId:'kubeConfig',secretNamespace:'default',enableConfigSubstitution:true)
         //  sh 'kubectl --kubeconfig /home/ubuntu/config apply -f deployment.yaml'
      // }
-    }
+   // }
    }
  }
