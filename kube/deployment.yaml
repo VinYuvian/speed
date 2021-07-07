@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: speedtest
-        image: vin1711/speed-poc:latest
+        image: vin1711/speed-poc:22
         ports:
         - name: http
           containerPort: 80
