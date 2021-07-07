@@ -60,7 +60,7 @@ pipeline {
          //unstash 'workspace'
            //kubernetesDeploy(configs: '**/*.yaml', kubeconfigId:'kubeConfig',secretNamespace:'default',enableConfigSubstitution:true,deleteResource:true)
            //kubernetesDeploy(configs: '**/*.yaml', kubeconfigId:'kubeConfig',secretNamespace:'default',enableConfigSubstitution:true)
-          sh 'kubectl cluster-info --kubeconfig /home/ubuntu/config apply -f deployment.yaml'
+          sh 'kubectl --kubeconfig /home/ubuntu/config apply -f deployment.yaml'
       }
     }
    }
