@@ -56,9 +56,7 @@ pipeline {
       }
     }
     stage('deploy to kubernetes'){
-      agent{
-        label 'master'
-      }
+      agent none
       steps{ 
          //unstash 'workspace'
            //kubernetesDeploy(configs: '**/*.yaml', kubeconfigId:'kubeConfig',secretNamespace:'default',enableConfigSubstitution:true,deleteResource:true)
