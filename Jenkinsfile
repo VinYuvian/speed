@@ -3,7 +3,7 @@
 
 pipeline {
   options{
-    skipDefaultCheckout()
+    //skipDefaultCheckout()
     buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '2',daysToKeepStr: '1'))
   }
   environment{
