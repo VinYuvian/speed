@@ -77,14 +77,15 @@ pipeline {
         }
       }
     }
-    //stage('deploy to kubernetes'){
-      //agent any
-      //steps{ 
+    stage('deploy to kubernetes'){
+      agent any
+      steps{ 
+        sh 'kubectl --kubeconfig /home/ubuntu/config apply -f /var/lib/jenkins/workspace/deploy2/kube/deployment.yaml'
          //unstash 'workspace'
            //kubernetesDeploy(configs: '**/*.yaml', kubeconfigId:'kubeConfig',secretNamespace:'default',enableConfigSubstitution:true,deleteResource:true)
            //kubernetesDeploy(configs: '**/*.yaml', kubeconfigId:'kubeConfig',secretNamespace:'default',enableConfigSubstitution:true)
         //  sh 'kubectl --kubeconfig /home/ubuntu/config apply -f deployment.yaml'
-     // }
-   // }
+      }
+    }
    }
  }
