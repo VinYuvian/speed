@@ -23,7 +23,7 @@ pipeline {
           }
       }
       steps{
-            git branch:'main',url:'https://github.com/VinYuvian/speed-poc.git'
+            git branch:'main',url:'https://github.com/VinYuvian/speed.git'
             //sh 'git config --global --unset http.proxy'
             //sh 'git clone https://github.com/VinYuvian/fiberReact_back.git'
             //stash 'workspace'
