@@ -9,18 +9,19 @@ pipeline {
   environment{
       image_name = 'vin1711/speed-poc'
     }
-  agent {
-    kubernetes {
-      cloud 'kubernetes'
-      label 'speed-poc'  // all your pods will be named with this prefix, followed by a unique id
-      idleMinutes 5  // how long the pod will live after no jobs have run on it
-      yamlFile 'pod.yaml'  // path to the pod definition relative to the root of our project 
-      defaultContainer 'docker'  // define a default container 
-      podRetention never()
-    }
-  }
+  agent none 
   stages {
     stage('checkout'){
+      agent{
+          kubernetes {
+            cloud 'kubernetes'
+            label 'speed-poc'  // all your pods will be named with this prefix, followed by a unique id
+            idleMinutes 5  // how long the pod will live after no jobs have run on it
+            yamlFile 'pod.yaml'  // path to the pod definition relative to the root of our project 
+            defaultContainer 'docker'  // define a default container 
+            podRetention never()
+          }
+      }
       steps{
             git branch:'main',url:'https://github.com/VinYuvian/speed-poc.git'
             //sh 'git config --global --unset http.proxy'
@@ -29,6 +30,16 @@ pipeline {
       }
     }
     stage('Build Docker Image') {
+      agent{
+          kubernetes {
+            cloud 'kubernetes'
+            label 'speed-poc'  // all your pods will be named with this prefix, followed by a unique id
+            idleMinutes 5  // how long the pod will live after no jobs have run on it
+            yamlFile 'pod.yaml'  // path to the pod definition relative to the root of our project 
+            defaultContainer 'docker'  // define a default container 
+            podRetention never()
+          }
+      }
       steps {
           container('docker') {  
             sh "docker build -t ${image_name} -t ${image_name}:${BUILD_ID} ."
@@ -41,6 +52,16 @@ pipeline {
       }
     }
     stage('Push Image'){
+      agent{
+          kubernetes {
+            cloud 'kubernetes'
+            label 'speed-poc'  // all your pods will be named with this prefix, followed by a unique id
+            idleMinutes 5  // how long the pod will live after no jobs have run on it
+            yamlFile 'pod.yaml'  // path to the pod definition relative to the root of our project 
+            defaultContainer 'docker'  // define a default container 
+            podRetention never()
+          }
+      }
       when{
         expression{
           env.choice == 'prod'
