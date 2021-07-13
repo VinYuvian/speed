@@ -1,5 +1,4 @@
 //Descriptuon: "pipeline to deply golang backend application to kubernetes"
-//
 
 pipeline {
   options{
@@ -80,7 +79,8 @@ pipeline {
     stage('deploy to kubernetes'){
       agent any
       steps{ 
-        sh 'kubectl --kubeconfig /home/ubuntu/config apply -f /var/lib/jenkins/workspace/deploy3/kube/deployment.yaml'
+        sh 'echo hello'
+        //sh 'kubectl --kubeconfig /home/ubuntu/config apply -f /var/lib/jenkins/workspace/deploy3/kube/deployment.yaml'
          //unstash 'workspace'
            //kubernetesDeploy(configs: '**/*.yaml', kubeconfigId:'kubeConfig',secretNamespace:'default',enableConfigSubstitution:true,deleteResource:true)
            //kubernetesDeploy(configs: '**/*.yaml', kubeconfigId:'kubeConfig',secretNamespace:'default',enableConfigSubstitution:true)
