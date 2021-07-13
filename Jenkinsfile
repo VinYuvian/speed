@@ -80,6 +80,7 @@ pipeline {
       agent any
       steps{ 
         sh 'echo hello'
+        sh "sed -i 's/build_id/${BUIDL_ID}/' /var/lib/jenkins/workspace/kubernetes-deployment/kube/deployment.yaml"
         sh 'kubectl --kubeconfig /home/ubuntu/config apply -f /var/lib/jenkins/workspace/kubernetes-deployment/kube/deployment.yaml'
          //unstash 'workspace'
            //kubernetesDeploy(configs: '**/*.yaml', kubeconfigId:'kubeConfig',secretNamespace:'default',enableConfigSubstitution:true,deleteResource:true)
