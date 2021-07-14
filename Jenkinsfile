@@ -6,7 +6,6 @@ pipeline {
     //skipDefaultCheckout()
     buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '2',daysToKeepStr: '1'))
   }
-  //webhooks testing
   environment{
       image_name = 'vin1711/speed-poc'
     }
